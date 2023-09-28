@@ -1,16 +1,17 @@
-import Head from "next/head"
-import { MyComponent } from "@pedroresende/css-error"
-import { useState, useEffect } from "react"
-import { useRouter } from "next/router"
+import Head from "next/head";
+import { MyButton } from "@pedroresende/css-error";
+import { useState, useEffect } from "react";
 
 export default function Home() {
-  const router = useRouter()
-  const [hasLoaded, setLoaded] = useState(false)
+  const [hasLoaded, setLoaded] = useState(false);
+  const [buttonText, setButtonText] = useState("hi");
+
   useEffect(() => {
     if (!hasLoaded && typeof window !== undefined) {
-      setLoaded(true)
+      setLoaded(true);
     }
-  }, [hasLoaded])
+  }, [hasLoaded]);
+
   return (
     <>
       <Head>
@@ -20,9 +21,16 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        {hasLoaded && <MyComponent first="Your" last="Name" />}
-        <button onClick={() => router.push("/another")}>Next Page</button>
+        <p style={{ margin: "10px" }}>
+          <input
+            onChange={(e) => {
+              setButtonText(e.target.value);
+            }}
+            defaultValue={buttonText}
+          />
+        </p>
+        {hasLoaded && <MyButton>{buttonText}</MyButton>}
       </main>
     </>
-  )
+  );
 }

@@ -1,0 +1,19 @@
+:host {
+  display: block;
+}
+
+.button {
+  background-color: red;
+  color: white;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.button:active {
+  background-color: white;
+  color: red;
+}
+
+.button:hover {
+  background-color: darkred;
+}

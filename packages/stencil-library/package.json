@@ -26,9 +26,10 @@
     "generate": "stencil generate"
   },
   "dependencies": {
-    "@stencil/core": "^3.0.0"
+    "@stencil/core": "^4.3.0"
   },
   "devDependencies": {
+    "@stencil/angular-output-target": "^0.8.2",
     "@stencil/react-output-target": "^0.5.0",
     "@types/jest": "^27.5.2",
     "@types/node": "^16.18.11",

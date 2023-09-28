@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@pedroresende/css-error": "^0.0.1",
+    "@pedroresende/css-error": "file:../packages/react-library",
     "@types/node": "18.15.11",
     "@types/react": "18.0.35",
     "@types/react-dom": "18.0.11",

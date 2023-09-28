@@ -50,12 +50,19 @@ export const getClassName = (classList, newProps, oldProps) => {
     incomingPropClasses.forEach((s) => finalClassNames.push(s));
     return finalClassNames.join(' ');
 };
+export const transformReactEventName = (eventNameSuffix) => {
+    switch (eventNameSuffix) {
+        case 'doubleclick':
+            return 'dblclick';
+    }
+    return eventNameSuffix;
+};
 export const isCoveredByReact = (eventNameSuffix) => {
     if (typeof document === 'undefined') {
         return true;
     }
     else {
-        const eventName = 'on' + eventNameSuffix;
+        const eventName = 'on' + transformReactEventName(eventNameSuffix);
         let isSupported = eventName in document;
         if (!isSupported) {
             const element = document.createElement('div');
